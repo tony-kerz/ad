@@ -31,7 +31,7 @@ class AD {
       );
     }
 
-    if (String(config.user).indexOf('@') === -1) {
+    if (!config.relaxFqdnUser && String(config.user).indexOf('@') === -1) {
       throw new Error(
         'The user must include the fully qualified domain name, such as joe@acme.co.'
       );
