@@ -37,7 +37,9 @@ class AD {
       );
     }
 
-    config.domain = String(config.user).split('@')[1];
+    if (!config.domain) {
+      config.domain = String(config.user).split('@')[1];
+    }
 
     if (config.baseDN === undefined) {
       config.baseDN = config.domain.split('.').map(n => `DC=${n}`).join(',');
